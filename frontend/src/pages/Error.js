@@ -10,6 +10,9 @@ function ErrorPage() {
 
     if(error.status === 500) {
         message = JSON.parse(error.data).message;
+
+        // kalo pake json (react router version 6 kebawah)
+        // message = error.data.message;
     }
 
     if(error.status === 404) {

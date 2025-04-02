@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, json } from 'react-router-dom';
 
 import EventsList from '../components/EventsList';
 
@@ -23,6 +23,14 @@ export async function loader() {
         throw new Response(JSON.stringify({ message: 'Could not fetch events.'}), {
             status: 500,
         });
+
+        // kalo pake json (react router version 6 kebawah)
+        // return json (
+        //     { message : 'Could not fetch events.'},
+        //     {
+        //         status: 500,
+        //     }
+        // );
     } else {
         return response;
     }
